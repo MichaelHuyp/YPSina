@@ -1,0 +1,156 @@
+//
+//  pchFile.pch
+//  YPExtension
+//
+//  Created by 胡云鹏 on 15/8/7.
+//  Copyright (c) 2015年 MichaelPPP. All rights reserved.
+//
+
+#import <Availability.h>
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+
+#import "AFNetworking.h"
+#import "MBProgressHUD+MJ.h"
+#import "MJExtension.h"
+//#import "UIImageView+WebCache.h"
+//#import "SDWebImageManager.h"
+
+#import "UIBarButtonItem+Extension.h"
+#import "UIView+YPExtension.h"
+#import "UIScrollView+YPExtension.h"
+#import "UIWindow+YPExtension.h"
+#import "NSString+YPExtension.h"
+#import "NSDate+YPExtension.h"
+
+#ifdef DEBUG // 处于开发阶段
+#define YPLog(...) NSLog(__VA_ARGS__)
+#else // 处于发布阶段
+#define YPLog(...)
+#endif
+
+/**
+ *  定位行的打印
+ */
+#define YPDEBUGLOG(fmt, ...) YPLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+
+/**
+ *  通知中心
+ */
+#define YPNotificationCenter [NSNotificationCenter defaultCenter]
+
+/**
+ *  系统导航栏高度
+ */
+#define YPNavigationBarH 44
+/**
+ *  系统状态栏高度
+ */
+#define YPStatusBar 20
+/**
+ *  系统导航栏+状态栏高度
+ */
+#define YPStatusBarAndNavBar 64
+/**
+ *  间距
+ */
+#define YPPadding 8
+#define YPPadding_2 16
+
+/**
+ *  颜色
+ */
+#define YPBlackColor [UIColor blackColor]
+#define YPBlueColor [UIColor blueColor]
+#define YPRedColor [UIColor redColor]
+#define YPWhiteColor [UIColor whiteColor]
+#define YPGrayColor [UIColor grayColor]
+#define YPDarkGrayColor [UIColor darkGrayColor]
+#define YPLightGrayColor [UIColor lightGrayColor]
+#define YPGreenColor [UIColor greenColor]
+#define YPCyanColor [UIColor cyanColor]
+#define YPYellowColor [UIColor yellowColor]
+#define YPMagentaColor [UIColor magentaColor]
+#define YPOrangeColor [UIColor orangeColor]
+#define YPPurpleColor [UIColor purpleColor]
+#define YPBrownColor [UIColor brownColor]
+#define YPClearColor [UIColor clearColor]
+/**
+ *  字体大小
+ */
+#define YPFont_10 [UIFont boldSystemFontOfSize:10]
+#define YPFont_11 [UIFont boldSystemFontOfSize:11]
+#define YPFont_12 [UIFont boldSystemFontOfSize:12]
+#define YPFont_13 [UIFont boldSystemFontOfSize:13]
+#define YPFont_14 [UIFont boldSystemFontOfSize:14]
+#define YPFont_15 [UIFont boldSystemFontOfSize:15]
+#define YPFont_16 [UIFont boldSystemFontOfSize:16]
+#define YPFont_17 [UIFont boldSystemFontOfSize:17]
+#define YPFont_18 [UIFont boldSystemFontOfSize:18]
+#define YPFont_19 [UIFont boldSystemFontOfSize:19]
+#define YPFont_20 [UIFont boldSystemFontOfSize:20]
+
+
+/**
+ *  RGB颜色
+ */
+#define YPColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+/**
+ *  随机色
+ */
+#define YPRandomColor YPColor(arc4random_uniform(256),arc4random_uniform(256),arc4random_uniform(256))
+
+/**
+ *  屏幕
+ */
+#define YPScreen [UIScreen mainScreen]
+/**
+ *  屏幕宽度
+ */
+#define YPScreenW [UIScreen mainScreen].bounds.size.width
+/**
+ *  屏幕高度
+ */
+#define YPScreenH [UIScreen mainScreen].bounds.size.height
+/**
+ *  屏幕Frame
+ */
+#define YPScreenBounds [UIScreen mainScreen].bounds
+/**
+ *  屏幕伸缩度（Retina时值为2,非Retina值为1）
+ */
+#define YPScreenScale [UIScreen mainScreen].scale
+
+
+/**
+ *  微博特有宏
+ */
+// cell的边框宽度
+#define YPStatusCellBorderW 10
+// cell之间的间距
+#define YPStatusCellMargin 15
+// 昵称字体
+#define YPStatusCellNameFont [UIFont systemFontOfSize:15]
+// 时间字体
+#define YPStatusCellTimeFont [UIFont systemFontOfSize:12]
+// 来源字体
+#define YPStatusCellSourceFont [UIFont systemFontOfSize:12]
+// 正文字体
+#define YPStatusCellContentFont [UIFont systemFontOfSize:14]
+// 转发微博正文字体
+#define YPStatusCellRetweetContentFont [UIFont systemFontOfSize:13]
+// 转发微博背景颜色
+#define YPRetweetBgColor [UIColor colorWithRed:0.95f green:0.95f blue:0.96f alpha:1.00f]
+
+// 微博图片宽高尺寸
+#define YPStatusPhotoWH 70
+// 微博图片间隙
+#define YPStatusPhotoMargin 10
+// 微博最大列数
+#define YPStatusPhotoMaxCol(count) ((count==4)?2:3)
+#endif
